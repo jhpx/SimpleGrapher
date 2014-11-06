@@ -40,7 +40,7 @@ if __name__ == "__main__":
         elif(line[COL_TYPE] == '内容'):
             n = G.get_node(line[COL_LABEL].decode('utf8'))
             content = line[COL_NEXT].decode('utf8')
-            if(n.attr['label']):
+            if(n.attr['label'] and n.attr['label']!='\N'):
                 n.attr['label'] = n.attr['label'].rstrip('}') + '| ' + content + '}}'
             else:
                 n.attr['label'] = '{ ' + n.name + '|{ ' + content + '}}'
